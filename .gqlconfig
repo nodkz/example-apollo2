@@ -1,0 +1,35 @@
+// see config options https://github.com/Mayank1791989/gql
+{
+  schema: {
+    // For Client query autosuggesting
+    files: 'schema.graphql'
+    
+    // For Server: GoTo Definition + Type Checks
+    // files: 'packages/boilerplate-server/src/schema/**/*.gql' 
+  },
+  query: {
+    files: [
+      {
+        match: 'src/**/*.ts',
+        parser: ['EmbeddedQueryParser', { startTag: 'gql`', endTag: '`' }],
+        validate: {
+          extends: 'gql-rules-query',
+          rules: {
+            FieldsOnCorrectType: 'off'
+          }
+        }
+      },
+      {
+        match: 'src/**/*.tsx',
+        parser: ['EmbeddedQueryParser', { startTag: 'gql`', endTag: '`' }],
+        validate: {
+          extends: 'gql-rules-query',
+          rules: {
+            KnownFragmentNames: 'off',
+            NoUnusedFragments: 'off'
+          }
+        }
+      },
+    ]
+  }
+}

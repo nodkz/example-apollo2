@@ -1,0 +1,68 @@
+{
+  "name": "example-fragments-apollo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env SKIP_PREFLIGHT_CHECK=true react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint 'src/**/*.{js,ts,tsx,jsx}'",
+    "apollo-generate": "apollo client:codegen --addTypename --target=typescript --localSchemaFile=./schema.graphql --includes=\"./src/**/*.{ts,tsx}\" --tagName gql",
+    "watch-generate": "npm run apollo-generate -- --watch",
+    "watch": "npm run clear && concurrently -k npm:watch-generate npm:start",
+    "clear": "find ./src -name \"__generated__\" -exec rm -rf '{}' +"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-cache-inmemory": "^1.5.1",
+    "apollo-client": "^2.5.1",
+    "apollo-link": "^1.2.11",
+    "graphql-tag": "^2.10.1",
+    "history": "^4.9.0",
+    "qs": "^6.7.0",
+    "react": "^16.8.6",
+    "react-apollo": "^2.5.5",
+    "react-bootstrap": "^1.0.0-beta.8",
+    "react-dom": "^16.8.6",
+    "react-router": "^5.0.0",
+    "react-router-bootstrap": "^0.25.0",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "^3.0.1"
+  },
+  "devDependencies": {
+    "@playlyfe/gql": "^2.6.1",
+    "@types/history": "^4.7.2",
+    "@types/jest": "^24.0.12",
+    "@types/node": "^12.0.0",
+    "@types/qs": "^6.5.3",
+    "@types/react": "^16.8.17",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-router-bootstrap": "^0.24.5",
+    "@types/react-router-dom": "^4.3.3",
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "apollo": "^2.10.3",
+    "concurrently": "^4.1.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-graphql": "^3.0.3",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.17.0",
+    "typescript": "^3.4.5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
