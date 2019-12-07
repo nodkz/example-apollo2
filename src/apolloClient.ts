@@ -7,8 +7,7 @@ import gql from 'graphql-tag';
 const cache = new InMemoryCache();
 
 const httpLink = new HttpLink({
-  uri: 'https://graphql-compose.herokuapp.com/northwind/',
-  // uri: 'http://localhost:4444/northwind/',
+  uri: process.env.REACT_APP_API_URL,
   fetch,
   credentials: 'same-origin',
   headers: {},
