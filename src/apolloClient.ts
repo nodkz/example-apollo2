@@ -22,14 +22,6 @@ export const apolloClient = new ApolloClient({
 });
 
 const query = gql`
-  query OrderListQuery($page: Int!, $perPage: Int!) {
-    viewer {
-      orderPagination(page: $page, perPage: $perPage) {
-        ...OrderList_orderPagination
-      }
-    }
-  }
-
   fragment OrderList_orderPagination on OrderPagination {
     count
     items {
