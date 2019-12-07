@@ -45,7 +45,7 @@
     "@types/react-router-bootstrap": "^0.24.5",
     "@types/react-router-dom": "^4.3.3",
     "@typescript-eslint/eslint-plugin": "^1.7.0",
-    "apollo": "^2.10.3",
+    "apollo": "^2.21.1",
     "concurrently": "^4.1.0",
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
@@ -54,6 +54,9 @@
     "eslint-plugin-prettier": "^3.0.1",
     "prettier": "^1.17.0",
     "typescript": "^3.4.5"
+  },
+  "resolutions": {
+    "graphql": "^14.5.8"
   },
   "browserslist": {
     "production": [
