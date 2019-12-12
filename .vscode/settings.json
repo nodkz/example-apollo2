@@ -9,8 +9,7 @@
   "[typescriptreact]": {
     "editor.formatOnSave": true
   },
-  "prettier.eslintIntegration": true,
-  "prettier.tslintIntegration": true,
+  "eslint.autoFixOnSave": true,
   "eslint.validate": [
     { "language": "javascript", "autoFix": true },
     { "language": "javascriptreact", "autoFix": true },
