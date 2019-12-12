@@ -33,6 +33,14 @@ export default function Index() {
           https://github.com/graphql-compose/graphql-compose-examples/tree/master/examples/northwind
         </a>
       </div>
+
+      <div style={{ marginTop: 50 }}>
+        <h4>🛑 NOTICE</h4>
+        <code>__generated__</code> folders should be added to <code>.gitignore</code> file. It's bad
+        to keep generated files in repo because it complicates code review. You need to generate
+        files everytime before you build or start app in watch mode. In this repo I keep generated
+        files only for demo purposes!
+      </div>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { apolloClient } from './apolloClient';
 import gql from 'graphql-tag';
 
 const query = gql`
-  query OrderListQuery($page: Int!, $perPage: Int!) {
+  query DemoQueryWithoutReact($page: Int!, $perPage: Int!) {
     viewer {
       orderPagination(page: $page, perPage: $perPage) {
         ...OrderList_orderPagination
