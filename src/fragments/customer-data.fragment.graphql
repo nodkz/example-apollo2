@@ -1,0 +1,6 @@
+fragment Customer_data on Customer {
+  companyName
+  orderList {
+    orderID
+  }
+}

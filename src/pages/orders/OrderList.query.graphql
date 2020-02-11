@@ -1,0 +1,7 @@
+query OrderListQuery($page: Int!, $perPage: Int!) {
+  viewer {
+    orderPagination(page: $page, perPage: $perPage) {
+      ...OrderList_orderPagination
+    }
+  }
+}

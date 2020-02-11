@@ -1,33 +1,11 @@
 import React from 'react';
-import gql from 'graphql-tag';
-import { OrderRow_order } from './__generated__/OrderRow_order';
+import { OrderRow_OrderFragment } from '../../__generated__/types';
 
 interface Props {
-  order: OrderRow_order;
+  order: OrderRow_OrderFragment;
 }
 
 class OrderRow extends React.Component<Props> {
-  static fragment = gql`
-    fragment OrderRow_order on Order {
-      orderID
-      orderDate
-      customerID
-      employeeID
-      employee {
-        firstName
-        lastName
-        birthDate
-      }
-      customer {
-        companyName
-        orderList(limit: $perPage) {
-          orderID
-        }
-      }
-      freight
-    }
-  `;
-
   render() {
     const { order } = this.props;
     const { employee } = order;

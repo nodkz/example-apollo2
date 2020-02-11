@@ -1,7 +1,8 @@
 import React from 'react';
-import OrderListQuery from './OrderListQuery';
 import { RouteComponentProps } from 'react-router-dom';
 import qs from 'qs';
+import { OrderListQueryComponent } from '../../__generated__/types';
+import OrderList from './OrderList';
 
 interface Props extends RouteComponentProps {}
 
@@ -18,13 +19,29 @@ export default class OrderRouter extends React.Component<Props> {
   render() {
     const { search } = this.props.location;
     const query = qs.parse(search, { ignoreQueryPrefix: true }) || {};
-
     const page = parseInt(query.page, 10) || 1;
     const perPage = parseInt(query.perPage, 10) || 10;
 
     return (
       <div>
-        <OrderListQuery page={page} perPage={perPage} onSetPage={this.setPage} />
+        <OrderListQueryComponent
+          variables={{
+            page,
+            perPage,
+          }}
+        >
+          {({ error, loading, data }) => {
+            if (loading) return <div>Loading...</div>;
+            if (error) return <div>Error: {error.message}</div>;
+            if (data && data.viewer && data.viewer.orderPagination) {
+              return (
+                <OrderList orderPagination={data.viewer.orderPagination} onSetPage={this.setPage} />
+              );
+            }
+
+            return null;
+          }}
+        </OrderListQueryComponent>
       </div>
     );
   }
