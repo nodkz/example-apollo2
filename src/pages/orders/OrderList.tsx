@@ -1,29 +1,14 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { Pagination } from 'react-bootstrap';
 import OrderRow from './OrderRow';
-import { OrderList_orderPagination } from './__generated__/OrderList_orderPagination';
+import { OrderList_OrderPaginationFragment } from '../../__generated__/types';
 
 interface Props {
-  orderPagination: OrderList_orderPagination;
+  orderPagination: OrderList_OrderPaginationFragment;
   onSetPage: (page: number) => any;
 }
 
 class OrderList extends React.Component<Props> {
-  static fragment = gql`
-    fragment OrderList_orderPagination on OrderPagination {
-      count
-      items {
-        ...OrderRow_order
-      }
-      pageInfo {
-        pageCount
-        currentPage
-      }
-    }
-    ${OrderRow.fragment}
-  `;
-
   setPage = (page: number) => {
     const { onSetPage } = this.props;
     if (onSetPage) onSetPage(page);

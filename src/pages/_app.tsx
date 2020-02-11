@@ -6,7 +6,7 @@ import Menu from '../components/Menu';
 import AppRoute from './_routes';
 import { ApolloClient } from 'apollo-client';
 import { NormalizedCacheObject } from 'apollo-cache-inmemory';
-import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider } from '@apollo/react-components';
 
 interface Props {
   history: History;

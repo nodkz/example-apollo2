@@ -1,0 +1,24 @@
+query OrdersTestQuery {
+  viewer {
+    category {
+      description
+      name
+    }
+    orderPagination(perPage: 3, page: 1, sort: ORDERID_ASC) {
+      count
+      items {
+        orderID
+        customerID
+        customer {
+          companyName
+          orderList {
+            orderID
+          }
+        }
+      }
+    }
+    regionList {
+      name
+    }
+  }
+}

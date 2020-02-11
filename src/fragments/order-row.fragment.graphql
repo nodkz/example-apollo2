@@ -1,0 +1,18 @@
+fragment OrderRow_order on Order {
+  orderID
+  orderDate
+  customerID
+  employeeID
+  employee {
+    firstName
+    lastName
+    birthDate
+  }
+  customer {
+    companyName
+    orderList(limit: $perPage) {
+      orderID
+    }
+  }
+  freight
+}

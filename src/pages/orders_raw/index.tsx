@@ -1,53 +1,24 @@
 import React from 'react';
-import { Query } from 'react-apollo';
-import { RouteComponentProps } from 'react-router-dom';
-import gql from 'graphql-tag';
-import { OrdersTestQuery as R } from './__generated__/OrdersTestQuery';
+import { OrdersTestQueryComponent } from '../../__generated__/types';
 
-interface Props extends RouteComponentProps {}
-
-class TypedQuery extends Query<R> {}
-
-export default function Orders(props: Props) {
+export default function Orders() {
   return (
-    <TypedQuery
-      query={gql`
-        query OrdersTestQuery {
-          viewer {
-            category {
-              description
-              name
-            }
-            orderPagination(perPage: 3, page: 1, sort: ORDERID_ASC) {
-              count
-              items {
-                orderID
-                customerID
-                customer {
-                  companyName
-                  orderList {
-                    orderID
-                  }
-                }
-              }
-            }
-            regionList {
-              name
-            }
-          }
-        }
-      `}
-    >
+    <OrdersTestQueryComponent>
       {({ error, loading, data }) => {
-        if (loading) return <div>Loading...</div>;
-        if (error) return <div>{error.message}</div>;
-        if (data)
+        if (loading) {
+          return <div>Loading...</div>;
+        } else if (error) {
+          return <div>{error.message}</div>;
+        } else if (data) {
           return (
             <div>
               <pre>{JSON.stringify(data, null, 2)}</pre>
             </div>
           );
+        } else {
+          return null;
+        }
       }}
-    </TypedQuery>
+    </OrdersTestQueryComponent>
   );
 }

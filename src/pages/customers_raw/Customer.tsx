@@ -1,23 +1,11 @@
 import React from 'react';
-import gql from 'graphql-tag';
-import { Customer_data } from './__generated__/Customer_data';
+import { Customer_DataFragment } from '../../__generated__/types';
 
 interface Props {
-  data: Customer_data;
+  data: Customer_DataFragment;
 }
 
 class Customer extends React.Component<Props> {
-  static fragments = {
-    data: gql`
-      fragment Customer_data on Customer {
-        companyName
-        orderList {
-          orderID
-        }
-      }
-    `,
-  };
-
   render() {
     const { data } = this.props;
 

@@ -1,0 +1,10 @@
+fragment OrderList_orderPagination on OrderPagination {
+  count
+  items {
+    ...OrderRow_order
+  }
+  pageInfo {
+    pageCount
+    currentPage
+  }
+}
