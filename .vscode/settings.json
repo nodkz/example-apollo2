@@ -17,5 +17,8 @@
     { "language": "typescriptreact", "autoFix": true }
   ],
   "typescript.tsc.autoDetect": "off",
-  "npm.autoDetect": "off"
+  "npm.autoDetect": "off",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
