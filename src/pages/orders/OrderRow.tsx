@@ -1,8 +1,9 @@
 import React from 'react';
-import { OrderRow_OrderFragment } from '../../__generated__/types';
+import { OrderRow_orderFragment } from './__generated__/OrderRow_order';
+import { Customer } from '../customers/Customer';
 
 interface Props {
-  order: OrderRow_OrderFragment;
+  order: OrderRow_orderFragment;
 }
 
 class OrderRow extends React.Component<Props> {
@@ -14,7 +15,7 @@ class OrderRow extends React.Component<Props> {
       <div>
         <div className="row">
           <div className="col-sm-1">{order.orderID}</div>
-          <div className="col-sm-2">{order.customer && order.customer.companyName}</div>
+          <div className="col-sm-2">{order.customer && <Customer data={order.customer} />}</div>
           {employee && (
             <div className="col-sm-2">
               {employee.firstName} {employee.lastName} (id:{order.employeeID})

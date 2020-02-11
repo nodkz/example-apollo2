@@ -9,10 +9,7 @@ fragment OrderRow_order on Order {
     birthDate
   }
   customer {
-    companyName
-    orderList(limit: $perPage) {
-      orderID
-    }
+    ...Customer_data
   }
   freight
 }

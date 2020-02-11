@@ -1,10 +1,10 @@
 import React from 'react';
 import { Pagination } from 'react-bootstrap';
 import OrderRow from './OrderRow';
-import { OrderList_OrderPaginationFragment } from '../../__generated__/types';
+import { OrderList_paginationFragment } from './__generated__/OrderList_pagination';
 
 interface Props {
-  orderPagination: OrderList_OrderPaginationFragment;
+  pagination: OrderList_paginationFragment;
   onSetPage: (page: number) => any;
 }
 
@@ -15,18 +15,18 @@ class OrderList extends React.Component<Props> {
   };
 
   render() {
-    const { orderPagination } = this.props;
-    const { count } = orderPagination;
-    const { pageCount, currentPage } = orderPagination.pageInfo;
+    const { pagination } = this.props;
+    const { count } = pagination;
+    const { pageCount, currentPage } = pagination.pageInfo;
 
-    if (!orderPagination || !orderPagination.items) {
+    if (!pagination || !pagination.items) {
       return <div>No data</div>;
     }
 
     return (
       <div>
         <h1>Orders: {count}</h1>
-        {orderPagination.items.map((order, i) => {
+        {pagination.items.map((order, i) => {
           if (!order) return <div>Empty element</div>;
           return <OrderRow key={i} order={order} />;
         })}

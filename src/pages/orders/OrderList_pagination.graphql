@@ -1,4 +1,4 @@
-fragment OrderList_orderPagination on OrderPagination {
+fragment OrderList_pagination on OrderPagination {
   count
   items {
     ...OrderRow_order
