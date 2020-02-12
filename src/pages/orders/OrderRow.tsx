@@ -6,27 +6,23 @@ interface Props {
   order: OrderRow_orderFragment;
 }
 
-class OrderRow extends React.Component<Props> {
-  render() {
-    const { order } = this.props;
-    const { employee } = order;
+export function OrderRow(props: Props) {
+  const { order } = props;
+  const { employee } = order;
 
-    return (
-      <div>
-        <div className="row">
-          <div className="col-sm-1">{order.orderID}</div>
-          <div className="col-sm-2">{order.customer && <Customer data={order.customer} />}</div>
-          {employee && (
-            <div className="col-sm-2">
-              {employee.firstName} {employee.lastName} (id:{order.employeeID})
-            </div>
-          )}
-          <div className="col-sm-2">{`${order.orderDate || ''}`.substr(0, 10)}</div>
-          <div className="col-sm-2">{order.freight}</div>
-        </div>
+  return (
+    <div>
+      <div className="row">
+        <div className="col-sm-1">{order.orderID}</div>
+        <div className="col-sm-2">{order.customer && <Customer data={order.customer} />}</div>
+        {employee && (
+          <div className="col-sm-2">
+            {employee.firstName} {employee.lastName} (id:{order.employeeID})
+          </div>
+        )}
+        <div className="col-sm-2">{`${order.orderDate || ''}`.substr(0, 10)}</div>
+        <div className="col-sm-2">{order.freight}</div>
       </div>
-    );
-  }
+    </div>
+  );
 }
-
-export default OrderRow;

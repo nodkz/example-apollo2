@@ -5,16 +5,14 @@ interface Props {
   data: Customer_dataFragment;
 }
 
-export class Customer extends React.Component<Props> {
-  render() {
-    const { data } = this.props;
+export function Customer(props: Props) {
+  const { data } = props;
 
-    return (
+  return (
+    <div>
       <div>
-        <div>
-          {data.companyName} ({data.address?.city})
-        </div>
+        {data.companyName} ({data.address?.city})
       </div>
-    );
-  }
+    </div>
+  );
 }

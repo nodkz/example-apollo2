@@ -1,7 +1,7 @@
 import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
 
-export default function Index() {
+export function Index() {
   return (
     <div>
       <Jumbotron>
