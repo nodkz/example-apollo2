@@ -21,6 +21,9 @@ export default function Menu() {
       <Nav.Item style={{ padding: '10px' }}>
         <Link to="/customers">Customers</Link>
       </Nav.Item>
+      <Nav.Item style={{ padding: '10px' }}>
+        <Link to="/mock">Mock data</Link>
+      </Nav.Item>
     </Nav>
   );
 }
